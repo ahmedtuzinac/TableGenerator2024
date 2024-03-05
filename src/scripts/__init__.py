@@ -8,6 +8,7 @@ from models import *
 filepath: PosixPath = pathlib.Path(__file__)
 yaml_filepath: str = '{}/{}'.format(str(filepath.parent.parent.parent), 'assets/{}')
 placeholders_json_filepath = str(pathlib.Path(__file__).parent.parent / 'placeholders.json')
+language = 'en'
 
 
 def open_yamlfile(yaml_filepath: str) -> dict:
@@ -22,3 +23,5 @@ def open_yamlfile(yaml_filepath: str) -> dict:
 
 yaml_structure_filepath: str = yaml_filepath.format('structure.yaml')
 yaml_structure: dict = open_yamlfile(yaml_structure_filepath)
+messages_yaml: dict = open_yamlfile(yaml_filepath.format('messages.yaml'))
+error_messages: dict = messages_yaml['error']

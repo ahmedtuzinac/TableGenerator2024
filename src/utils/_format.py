@@ -1,4 +1,5 @@
 from models import *
+from scripts import *
 
 
 def format_data(yaml_data: dict, yaml_structure: dict, key: str = None) -> dict:
@@ -9,6 +10,7 @@ def format_data(yaml_data: dict, yaml_structure: dict, key: str = None) -> dict:
         :param yaml_data: dictionary with data from request
         :param yaml_structure: dictinary with lookups for paths
         :param key: if some path is dynamic, just pass key
+
         :return data: dictinary with keys of necessary elements from data
     """
 
@@ -21,9 +23,9 @@ def format_data(yaml_data: dict, yaml_structure: dict, key: str = None) -> dict:
             value: any = eval(f'yaml_data{path}')
             data[d] = value
 
-        except Exception as e:
-            raise Exception('NOT_FOUND: {}\nPATH: {}'.format(e, path))
-
+        except Exception:
+            error: str = error_messages['NOT_FOUND'][language].replace('{}', d.upper())
+            raise Exception('{}\nPATH: {}'.format(error, path))
     return data
 
 

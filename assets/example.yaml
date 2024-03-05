@@ -6,7 +6,6 @@ document:
     - ITEMS_TABLE
     - TOTAL_AMOUNT
     - TEST
-    - XD
   definitions:
     NR:
       type: text
