@@ -1,0 +1,11 @@
+iniconfig==2.0.0
+lxml==5.1.0
+mypy==1.8.0
+mypy-extensions==1.0.0
+packaging==23.2
+pluggy==1.4.0
+pytest==8.0.2
+python-docx==1.1.0
+PyYAML==6.0.1
+pyyml==0.0.2
+typing_extensions==4.10.0
