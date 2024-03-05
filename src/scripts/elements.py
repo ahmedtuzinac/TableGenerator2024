@@ -5,26 +5,18 @@ from utils import *
 
 
 def create_elements(data: dict) -> bool:
-    Validator._validate(
-        data=data,
-        fields={
-            'variables': list,
-            'definitions': list
-        }
-    )
-    # assert list == type(data.get('variables')), error_messages['INVALID_VARIABLES_INPUT'][language]
-    # assert dict == type(data.get('definitions')), error_messages['INVALID_DEFINITIONS_INPUT'][language]
-    #
-    # variables: list = data.get('variables')
-    # definitions: dict = data.get('definitions')
-    ...
-    for variable in variables:
-        try:
-            element_data: dict = definitions[variable]
-        except Exception:
-            raise ElementDefinitionNotFoundError('\nNOT_FOUND_DEFINITION\n'
-                                                 'VARIABLE: {}'.format(str(variable)))
-        element = create_element(str(variable), element_data)
+
+    variables, definitions = Validator._validate(data=data,
+                                                 fields={'variables': list, 'definitions': dict})
+
+    for v in variables:
+        # try:
+        #     element_data: dict = definitions[variable]
+        # except Exception:
+        #     raise ElementDefinitionNotFoundError('\nNOT_FOUND_DEFINITION\n'
+        #                                          'VARIABLE: {}'.format(str(variable)))
+        # element = create_element(str(variable), element_data)
+        ...
 
 
 # NOTE: here does not have to be any validation... Everything should be in _validator/Validator

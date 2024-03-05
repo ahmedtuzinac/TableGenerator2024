@@ -4,4 +4,4 @@ error:
   NOT_FOUND:
       en: '{}_NOT_FOUND'
   INVALID_TYPE:
-      en: '{}_INVALID_TYPE\nGIVEN_{}_SHOULD_BE_{}'
+      en: '-{}_INVALID_TYPE-EXPECTED_{}-PASSED_{}'
