@@ -9,7 +9,7 @@ document:
   definitions:
     NR:
       type: text
-      value: 3/2024
+      value: DC
 
     TOTAL_AMOUNT:
       type: text

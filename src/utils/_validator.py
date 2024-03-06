@@ -10,7 +10,7 @@ class Validator:
     """
 
     @staticmethod
-    def _validate(data: dict, fields: dict, rtn: bool = True) -> tuple:
+    def _validate(data: dict, fields: dict, error_msg: str, rtn: bool = True) -> tuple:
         """
             Method _validate validates that field's value type from data
             are same as provided in fields dict
@@ -21,31 +21,33 @@ class Validator:
 
             :return: tuple of field values, if validation is success
         """
+
         rtnv = tuple()
         for f in fields:
-            v: fields[f] = data[f]
-            assert isinstance(v, fields[f]), __class__._error_message(f, type(v), fields[f])
+            v: fields[f] = data.get(f)
+            assert isinstance(v, fields[f]), __class__._error_message(f.upper(),
+                                                                      fields[f].__name__.upper(),
+                                                                      type(v).__name__.upper(),
+                                                                      error_msg=error_msg)
             rtnv += (v,) if rtn else (f,)
 
         return rtnv
 
     @staticmethod
-    def _error_message(*args) -> str:
+    def _error_message(*args, error_msg: str) -> str:
         """
-            Method error_message creates error message for INVALID_TYPE
+            Method error_message creates error message
 
-            :args:
-                field_name: field name
-                given_type: type of provided value
-                expected_type: expected type of provided value
-            :return:
+            :args: vars to be formatted in message
+            :param error_msg: message structure string
+
+            :return: sting error message
         """
 
-        error = f'{error_messages["INVALID_TYPE"][language]}'.replace('-', '\n')
+        try:
+            error = f'{error_msg}'.replace('-', '\n')
+            error = error.format(*args)
+        except Exception:
+            raise
 
-        field_name: str = str(args[0]).upper()
-        given_type: str = args[1].__name__.upper()
-        expected_type: str = args[2].__name__.upper()
-
-        error = error.format(field_name, expected_type, given_type)
         return error
