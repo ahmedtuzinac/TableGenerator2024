@@ -2,8 +2,10 @@ success:
 
 error:
   NOT_FOUND:
-      en: '-{}_NOT_FOUND'
+    en: '-{}_NOT_FOUND'
   INVALID_INPUT:
-      en: '-{}_INVALID_INPUT-EXPECT_{}-PASS_{}'
+    en: '-{}_INVALID_INPUT-EXPECT_{}-PASS_{}'
   INVALID_DEFINITON:
-      en: '-{}_INVALID_DEFINITON-EXPECT_{}-PASS_{}'
+    en: '-{}_INVALID_DEFINITON-EXPECT_{}-PASS_{}'
+  INVALID_TYPE:
+    en: '-{}_INVALID_TYPE_VALUE-TYPE_{}_NOT_FOUND'

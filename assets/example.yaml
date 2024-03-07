@@ -17,7 +17,7 @@ document:
 
     TEST:
       type: text
-      value: TEST
+      value: Test Case 2024-03-07
 
     ITEMS_TABLE:
       type: table

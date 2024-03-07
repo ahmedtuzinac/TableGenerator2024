@@ -3,5 +3,5 @@ globals:
   variables: "['document']['variables']"
   definitions: "['document']['definitions']"
 functions:
-  text: create_text
-  table: create_table
+  text: Element._create_text
+  table: Element._create_table
