@@ -6,7 +6,7 @@ document:
     - ITEMS_TABLE
     - TOTAL_AMOUNT
 
-  definitions:
+  definition:
     NR:
       type: text
       value: DC

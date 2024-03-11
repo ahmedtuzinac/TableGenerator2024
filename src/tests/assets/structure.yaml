@@ -1,0 +1,7 @@
+globals:
+  title: '["document"]["title"]'
+  variables: "['document']['variables']"
+  definitions: "['document']['definitions']"
+functions:
+  text: Element._create_text
+  table: Element._create_table

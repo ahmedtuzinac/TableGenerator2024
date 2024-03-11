@@ -20,3 +20,9 @@ class InvalidElementType(Exception):
     def __init__(self, message='Element type is not valid'):
         self.message = message
         super().__init__(self.message)
+
+
+class InvalidInput(Exception):
+    def __init__(self, message='Element type is not valid'):
+        self.message = message
+        super().__init__(self.message)

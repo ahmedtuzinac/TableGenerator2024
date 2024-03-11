@@ -24,8 +24,8 @@ def format_data(yaml_data: dict, yaml_structure: dict, key: str = None) -> dict:
             data[d] = value
 
         except Exception:
-            error: str = error_messages['NOT_FOUND'][language].replace('{}', d.upper())
-            raise Exception('{}\nPATH: {}'.format(error, path))
+            error: str = error_messages['NOT_FOUND'][language].replace('{}', d.upper()).replace('-', '\n')
+            raise InvalidInput(error)
     return data
 
 
