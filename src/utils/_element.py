@@ -24,7 +24,8 @@ class Element:
 
         func = getattr(Element, '_create_{}'.format(definition['type']), None)
         try:
-            func(definition, var)
+            _e = func(definition, var)
+            return _e
         except TypeError:
             assert False, Validator._error_message(var, definition['type'].upper(),
                                                    error_msg=error_messages['INVALID_TYPE'][language])
@@ -36,6 +37,7 @@ class Element:
         from .elements.element_text import create
         try:
             create(*args)
+            return None
         except Exception as e:
             raise e
 
@@ -43,6 +45,7 @@ class Element:
     def _create_table(*args: tuple):
         from .elements.element_table import create
         try:
-            create(*args)
+            _table = create(*args)
+            return _table
         except Exception as e:
             raise e

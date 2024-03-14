@@ -14,6 +14,8 @@ def create(*args):
     for idx, _h_column in enumerate(_h_columns):
         width = modify_column(_table, idx, _columns[_h_column])
 
+    return _table
+
 
 def modify_column(table, column_idx: int, definition: dict):
     cell: docx.table.Cell = table.rows[0].cells[column_idx]

@@ -40,7 +40,16 @@ class Document:
         except Exception:
             return
 
-        template = DocxTemplate(self.template_filepath)
+        template = DocxTemplate(self.output_filepath)
         template.render(placeholders)
         template.save(self.output_filepath)
         os.remove(placeholders_filepath)
+
+    def _replace(self, _p, _e):
+        for paragraph in self.document.paragraphs:
+            if _p in paragraph.text:
+                paragraph.clear()
+                paragraph.insert_paragraph_before('')
+                paragraph._p.addnext(_e._element)
+                break
+        self.document.save(self.output_filepath)

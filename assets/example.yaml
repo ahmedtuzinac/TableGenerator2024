@@ -10,7 +10,6 @@ document:
     NR:
       type: text
       value: DC
-
     TOTAL_AMOUNT:
       type: text
       value: 1,500.00RSD
@@ -22,7 +21,7 @@ document:
           label: nr
           width: 5mm
         description:
-          label: Descriptionescriptionescriptionescription
+          label: Description
           width: 100mm
         unit_price:
           label: Unit price
